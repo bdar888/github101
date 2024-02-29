@@ -24,6 +24,3 @@ jobs:
           name: upload-artifact
           path: |
             result.txt
-  check-another:
-    runs-on: ubuntu-latest
-    needs: my-reusable-job
