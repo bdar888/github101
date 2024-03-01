@@ -1,7 +1,8 @@
 name: learn-workflow-scheduled
 run-name: ${{ github.actor }} - workflow scheduled
 on: 
-  schedule:
+  push
+#  schedule:
 #  - cron: '*/5 * * * *'
 
 jobs:
