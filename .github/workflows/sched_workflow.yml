@@ -1,0 +1,21 @@
+name: learn-workflow-scheduled
+run-name: ${{ github.actor }} is learning GitHub Actions
+on:
+  schedule:
+    - cron: "0 10 * * *"
+jobs:
+  my-job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - run: npm install -g bats
+      - run: bats -v | tee result.txt
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: upload-artifact
+          path: |
+            result.txt
